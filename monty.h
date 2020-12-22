@@ -1,5 +1,5 @@
-#ifndef _LISTS_H_
-#define _LISTS_H_
+#ifndef _MONTY_H_
+#define _MONTY_H_
 
 /* Librarys */
 #include <stdio.h>

@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 /**
  *get_op_func - will find which function to return depending on a given
  * operator
