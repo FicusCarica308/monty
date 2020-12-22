@@ -38,6 +38,8 @@ typedef struct instruction_s
 extern int push_value;
 int push_value;
 /* Functions Prototypes */
+void free_opcodes(char **op_codes);
+void errors(char *type, unsigned int lineNum, char *line, char **op_codes);
 char **get_bytecodes(char *file);
 char **rm_excess(char **op_codes);
 void isolate_codes(char **op_codes);

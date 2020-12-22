@@ -18,6 +18,8 @@ char **rm_excess(char **op_codes)
 		{
 			free(op_codes[i]);
 			op_codes[i] = malloc((strlen(nop) + 1) * sizeof(char));
+			if (op_codes[i] == NULL)
+				errors("malloc", 0, NULL, op_codes);
 			strcpy(op_codes[i], nop);
 			continue;
 		}
@@ -32,6 +34,8 @@ char **rm_excess(char **op_codes)
 		{
 			free(op_codes[i]);
 			op_codes[i] = malloc((strlen(nop) + 1) * sizeof(char));
+			if (op_codes[i] == NULL)
+				errors("malloc", 0, NULL, op_codes);
 			strcpy(op_codes[i], nop);
 		}
 	}
