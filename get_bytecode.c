@@ -59,7 +59,8 @@ void get_bytecodes(char *file_name)
 	while ((read_chars = getline(&line, &len, fp)) != -1)
 	{
         op_code = get_code(line);
-        stack_handler(op_code, line_num, &stack); /*new*/
+        if (stack_handler(op_code, line_num, &stack) == NULL)
+            invalid_error(line_num, op_code, &stack, line, fp);
         line_num++;
         free(op_code);
 	}

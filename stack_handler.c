@@ -24,7 +24,7 @@
         }
         return (NULL);
 }
-void stack_handler(char **op_code, unsigned int line_n, stack_t **stack)
+void *stack_handler(char **op_code, unsigned int line_n, stack_t **stack)
 {
     void (*code_func)(stack_t **, unsigned int);
 
@@ -33,7 +33,7 @@ void stack_handler(char **op_code, unsigned int line_n, stack_t **stack)
     code_func = get_op_func(op_code[0]);
 
     if (code_func == NULL)
-        printf("no fail yet");
-        /*invalid op_code error here*//*make sure to free hold in prev function*/
+        return (NULL);
     (*code_func)(&*stack, line_n);
+    return (op_code);
 }
