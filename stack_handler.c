@@ -21,7 +21,7 @@ int atoi_check(char *num)
                 {"pall", op_pall},
                 {"pint", op_pint},
                 {"pop", op_pop},
-                {"nop", NULL},
+                {"add", op_add},
                 {NULL, NULL}
         };
 
