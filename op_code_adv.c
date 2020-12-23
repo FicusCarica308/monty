@@ -48,5 +48,6 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 			printf("%c", temp_head->n);
 			temp_head = temp_head->next;
 		}
+        putchar('\n');
 	}
 }
