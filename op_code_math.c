@@ -20,3 +20,24 @@ void op_add(stack_t **stack, unsigned int line_number)
 		op_pop(&*stack, line_number);
 	}
 }
+/**
+ *op_sub - The opcode sub subtracts the top two elements of the stack
+ *@stack: head to current stack
+ *@line_number: current line number
+ */
+void op_sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp_head;
+
+	temp_head = *stack;
+	if (temp_head == NULL || temp_head->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n", line_number);
+		push_value = -1;
+	}
+	else
+	{
+		temp_head->next->n =  temp_head->next->n - temp_head->n;
+		op_pop(&*stack, line_number);
+	}
+}
