@@ -26,7 +26,7 @@ void inv_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
  */
 void push_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
 {
-	fprintf(stderr, "L%u:usage: push integer\n", l_n);
+	fprintf(stderr, "L%u: usage: push integer\n", l_n);
 	free(l);
 	free(o_c);
 	fclose(f);
