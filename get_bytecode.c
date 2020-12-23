@@ -12,10 +12,8 @@ char **get_code(char *line)
 
 	op_code = malloc(sizeof(char *) * 3);
 	if (op_code == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		return (NULL);
+
 	code = strtok(line, " ");
 	for (i = 0; code[i]; i++)
 		if (code[i] == '\n')
@@ -46,8 +44,7 @@ char **get_code(char *line)
 void get_bytecodes(char *file_name)
 {
 	FILE *fp;
-	char *line = NULL;
-	char **op_code = NULL;
+	char *line = NULL, **op_code = NULL;
 	size_t len = 0;
 	int read_chars;
 	unsigned int line_num = 1;
@@ -64,6 +61,12 @@ void get_bytecodes(char *file_name)
 	while ((read_chars = getline(&line, &len, fp)) != -1)
 	{
 		op_code = get_code(line);
+		if (op_code == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			free_error(op_code, &stack, line, fp);
+			exit(EXIT_FAILURE);
+		}
 		check = stack_handler(op_code, line_num, &stack);
 		if (check < 0)
 		{
