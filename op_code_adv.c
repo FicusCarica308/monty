@@ -38,12 +38,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
         putchar('\n');
     while (temp_head != NULL)
 	{
-        if (temp_head->n == 0)
-        {
-            putchar('\n');
-            break;
-        }
-         if (temp_head-> n > 127 || temp_head->n < 0)
+         if (temp_head-> n > 127 || temp_head->n <= 0)
             {
                 putchar('\n');
                 break;
@@ -51,4 +46,5 @@ void op_pstr(stack_t **stack, unsigned int line_number)
         printf("%c", temp_head->n);
 		temp_head = temp_head->next;
 	}
+    putchar('\n');
 }
