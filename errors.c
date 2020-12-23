@@ -17,3 +17,11 @@ void push_error(unsigned int line_n, char **op_c, stack_t **stack, char *line, F
     free_stack(&*stack);
     exit(EXIT_FAILURE);
 }
+void free_error(char **op_c, stack_t **stack, char *line, FILE *fd)
+{
+    free(line);
+    free(op_c);
+    fclose(fd);
+    free_stack(&*stack);
+    exit(EXIT_FAILURE);
+}

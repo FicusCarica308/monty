@@ -8,7 +8,8 @@ void op_pint(stack_t **stack, unsigned int line_number)
     if (temp_head == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		push_value = -1;
 	}
-    printf("%d\n", temp_head->n);
+    else
+        printf("%d\n", temp_head->n);
 }

@@ -55,5 +55,8 @@ int stack_handler(char **op_code, unsigned int line_n, stack_t **stack)
         /*-3 stands for not a op_code error*/
         return (-3);
     (*code_func)(&*stack, line_n);
+    if (push_value == -1)
+    /*-1 id everything else*/
+        return (-1);
     return (0);
 }

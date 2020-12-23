@@ -8,13 +8,17 @@ void op_push(stack_t **stack, unsigned int line_number)
         if (new_head == NULL)
         {
             fprintf(stderr, "Error: malloc failed\n");
-            exit(EXIT_FAILURE);
+            push_value = -1;
         }
-        if (new_head != NULL)
-        new_head->n = push_value;
-        new_head->next = *stack;
-        new_head->prev = NULL;
-        if (*stack != NULL)
+        else
+        {
+            new_head->n = push_value;
+            new_head->next = *stack;
+            new_head->prev = NULL;
+            if (*stack != NULL)
                 (*stack)->prev = new_head;
-        *stack = new_head;
+            *stack = new_head;
+            /*sets push_value to 0 so we dont have any overlapping values when checking errors*/
+            push_value = 0;
+        }
 }

@@ -42,6 +42,7 @@ void get_bytecodes(char *file_name);
 void free_stack(stack_t **stack);
 void invalid_error(unsigned int line_n, char **op_c, stack_t **stack, char *line, FILE *fd);
 void push_error(unsigned int line_n, char **op_c, stack_t **stack, char *line, FILE *fd);
+void free_error(char **op_c, stack_t **stack, char *line, FILE *fd);
 /*stack handler protos*/
 int stack_handler(char **op_code, unsigned int line_n, stack_t **stack);
 void op_push(stack_t **stack, unsigned int line_number);
