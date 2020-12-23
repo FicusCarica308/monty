@@ -19,6 +19,7 @@ int atoi_check(char *num)
         instruction_t ops[] = {
                 {"push", op_push},
                 {"pall", op_pall},
+                {"pint", op_pint},
                 {"nop", NULL},
                 {NULL, NULL}
         };

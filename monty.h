@@ -46,4 +46,5 @@ void push_error(unsigned int line_n, char **op_c, stack_t **stack, char *line, F
 int stack_handler(char **op_code, unsigned int line_n, stack_t **stack);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
 #endif
