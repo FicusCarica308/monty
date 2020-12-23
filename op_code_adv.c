@@ -36,14 +36,17 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 
 	if (temp_head == NULL)
         putchar('\n');
-    while (temp_head != NULL)
-	{
-         if (temp_head-> n > 127 || temp_head->n <= 0)
-            {
+    else
+    {
+        while (temp_head != NULL)
+	    {
+            if (temp_head-> n > 127 || temp_head->n <= 0)
+                {
                 putchar('\n');
                 break;
-            }
-        printf("%c", temp_head->n);
-		temp_head = temp_head->next;
-	}
+                }
+            printf("%c", temp_head->n);
+		    temp_head = temp_head->next;
+	    }
+    }
 }
