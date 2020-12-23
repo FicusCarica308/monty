@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- *invalid_error - prints unknown op code error and exits program
+ *inv_error - prints unknown op code error and exits program
  *@l_n: line number error occured on
  *@o_c: op_code double pointer (code, push_value) from file
  *@s: Stack head pointer for freeing
