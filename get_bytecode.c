@@ -56,6 +56,11 @@ void get_bytecodes(char *file_name)
 	(void)read_chars;
 
 	fp = fopen(file_name, "r");
+	if (fp == NULL)
+		{
+			fprintf(stderr, "Error: Can't open file %s", file_name);
+			exit(EXIT_FAILURE);
+		}
 
 	while ((read_chars = getline(&line, &len, fp)) != -1)
 	{
