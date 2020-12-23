@@ -46,8 +46,9 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 				break;
 			}
 			printf("%c", temp_head->n);
+            if (temp_head != 0)
+                putchar('\n');
 			temp_head = temp_head->next;
 		}
-        putchar('\n');
 	}
 }
