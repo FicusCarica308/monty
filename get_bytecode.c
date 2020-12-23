@@ -12,8 +12,10 @@ char **get_code(char *line)
 
 	op_code = malloc(sizeof(char *) * 3);
 	if (op_code == NULL)
+	{
+		free(op_code);
 		return (NULL);
-
+	}
 	code = strtok(line, " ");
 	for (i = 0; code[i]; i++)
 		if (code[i] == '\n')

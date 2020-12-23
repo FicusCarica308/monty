@@ -75,6 +75,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	new_head = malloc(sizeof(stack_t));
 	if (new_head == NULL)
 	{
+		free(new_head);
 		fprintf(stderr, "Error: malloc failed\n");
 		push_value = -1;
 	}
