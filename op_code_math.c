@@ -92,7 +92,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 	}
 }
 /**
- *op_mod - The opcode mod gets the remainder of the top two elements of the stack
+ *op_mod - The opcode mod gets the remainder of the top two elemen of the stak
  *@stack: head to current stack
  *@line_number: current line number
  */
