@@ -66,7 +66,7 @@ int stack_handler(char **op_code, unsigned int line_n, stack_t **stack)
 /*-2 stands for push error*/
 			return (-2);
 	}
-	if (strcmp(op_code[0], "nop") == 0)
+	if (strcmp(op_code[0], "nop") == 0 || op_code[0][0] == '#')
 		return (0);
 	code_func = get_op_func(op_code[0]);
 
