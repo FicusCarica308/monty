@@ -79,14 +79,14 @@ void op_div(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		if (temp_head->next->n == 0)
+		if (temp_head->n == 0)
 		{
 			fprintf(stderr, "L%u: division by zero\n", line_number);
 			push_value = -1;
 		}
 		else
 		{
-			temp_head->next->n = temp_head->n / temp_head->next->n;
+			temp_head->next->n = temp_head->next->n / temp_head->n;
 			op_pop(&*stack, line_number);
 		}
 	}
