@@ -48,4 +48,5 @@ int stack_handler(char **op_code, unsigned int line_n, stack_t **stack);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
+void op_pop(stack_t **stack, unsigned int line_number);
 #endif
