@@ -57,12 +57,6 @@ void get_bytecodes(char *file_name)
 	}
 	while ((read_chars = getline(&line, &len, fp)) != -1)
 	{
-		if (line == NULL)
-		{
-			fprintf(stderr, "Error: malloc failed\n");
-			free_error(op_code, &stack, line, fp);
-			exit(EXIT_FAILURE);
-		}
 		op_code = get_code(line);
 		if (op_code == NULL)
 		{
