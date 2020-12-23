@@ -4,14 +4,14 @@
  *@num: string with number
  *Return: returns the number or -1 on failure
  */
-int atoi_check(char *num)
+char *atoi_check(char *num)
 {
 	if (num == NULL)
-		return (-1);
+		return ("False");
 	if ((atoi(num) == 0 && strcmp(num, "0") != 0))
-		return (-1);
+		return ("False");
 	else
-		return (atoi(num));
+		return (num);
 }
 /**
  *get_op_func - will find which function to return depending on a given
@@ -56,7 +56,7 @@ int stack_handler(char **op_code, unsigned int line_n, stack_t **stack)
 
 	if (strcmp(op_code[0], "push") == 0)
 	{
-		if (atoi_check(op_code[1]) != -1)
+		if (strcmp(atoi_check(op_code[1]), "False") != 0)
 			push_value = atoi(op_code[1]);
 		else
 /*-2 stands for push error*/
