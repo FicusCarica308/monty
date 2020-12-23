@@ -6,12 +6,13 @@
  */
 char *atoi_check(char *num)
 {
+        int i = 0;
 	if (num == NULL)
 		return ("False");
-	if ((atoi(num) == 0 && strcmp(num, "0") != 0))
-		return ("False");
-	else
-		return (num);
+        for (i = 0; num[i]; i++)
+                if (isdigit(num[i]) == 0 && num[i] != '-')
+                        return ("False");
+        return (num);
 }
 /**
  *get_op_func - will find which function to return depending on a given
