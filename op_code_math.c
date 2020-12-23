@@ -11,7 +11,7 @@ void op_add(stack_t **stack, unsigned int line_number)
 	temp_head = *stack;
 	if (temp_head == NULL || temp_head->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		push_value = -1;
 	}
 	else
@@ -53,7 +53,7 @@ void op_mul(stack_t **stack, unsigned int line_number)
 	temp_head = *stack;
 	if (temp_head == NULL || temp_head->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		push_value = -1;
 	}
 	else

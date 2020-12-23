@@ -9,7 +9,7 @@
  */
 void inv_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
 {
-	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", l_n, o_c[0]);
+	fprintf(stderr, "L%u: unknown instruction %s\n", l_n, o_c[0]);
 	free(l);
 	free(o_c);
 	fclose(f);
@@ -26,7 +26,7 @@ void inv_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
  */
 void push_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
 {
-	dprintf(STDERR_FILENO, "L%u: unknown instruction usage: push integer", l_n);
+	fprintf(stderr, "L%u: unknown instruction usage: push integer", l_n);
 	free(l);
 	free(o_c);
 	fclose(f);
