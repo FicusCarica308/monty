@@ -2,9 +2,8 @@
 void op_pop(stack_t **stack, unsigned int line_number)
 {
     stack_t *temp_head;
-    (void)line_number;
 
-     temp_head = *stack;
+    temp_head = *stack;
     if (temp_head == NULL)
     {
         dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);

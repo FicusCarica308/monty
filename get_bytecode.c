@@ -64,7 +64,7 @@ void get_bytecodes(char *file_name)
 		if (check < 0)
 		{
 			if (check == -3)
-				invalid_error(line_num, op_code, &stack, line, fp);
+				inv_error(line_num, op_code, &stack, line, fp);
 			if (check == -2)
 				push_error(line_num, op_code, &stack, line, fp);
 			if (check == -1)

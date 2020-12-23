@@ -7,7 +7,7 @@
  *@l: Line that is allocated by getline
  *@f: File pointer(descriptor) for closure
  */
-void invalid_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
+void inv_error(unsigned int l_n, char **o_c, stack_t **s, char *l, FILE *f)
 {
 	fprintf(stderr, "L%u: unknown instruction %s\n", l_n, o_c[0]);
 	free(l);
