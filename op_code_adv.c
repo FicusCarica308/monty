@@ -14,7 +14,7 @@ void op_pchar(stack_t **stack, unsigned int line_number)
         }
         else
         {
-            if (temp_head-> n > 127)
+            if (temp_head-> n > 127 || temp_head->n < 0)
             {
                 fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
                 push_value = -1;
