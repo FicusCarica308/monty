@@ -45,11 +45,9 @@ void get_bytecodes(char *file_name)
 	FILE *fp;
 	char *line = NULL, **op_code = NULL;
 	size_t len = 0;
-	int read_chars;
+	int read_chars, check = 0;
 	unsigned int line_num = 1;
 	stack_t *stack = NULL;
-	int check = 0;
-	(void)read_chars;
 
 	fp = fopen(file_name, "r");
 	if (fp == NULL)
@@ -59,6 +57,12 @@ void get_bytecodes(char *file_name)
 	}
 	while ((read_chars = getline(&line, &len, fp)) != -1)
 	{
+		if (line == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			free_error(op_code, &stack, line, fp);
+			exit(EXIT_FAILURE);
+		}
 		op_code = get_code(line);
 		if (op_code == NULL)
 		{
