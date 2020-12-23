@@ -22,9 +22,10 @@ char **get_code(char *line)
     if (strcmp("push", code) == 0)
     {
         new_ele = strtok(NULL, " ");
-        for (i = 0; new_ele[i]; i++)
-            if (new_ele[i] == '\n')
-                new_ele[i] = '\0';
+        if (new_ele != NULL)
+            for (i = 0; new_ele[i]; i++)
+                if (new_ele[i] == '\n')
+                    new_ele[i] = '\0';
     }
     if (code[0] == '\0')
         op_code[0] = "nop";
@@ -52,6 +53,7 @@ void get_bytecodes(char *file_name)
 	int read_chars;
     unsigned int line_num = 1;
     stack_t *stack = NULL;
+    int check = 0;
     (void)read_chars;
 
 	fp = fopen(file_name, "r");
@@ -59,8 +61,12 @@ void get_bytecodes(char *file_name)
 	while ((read_chars = getline(&line, &len, fp)) != -1)
 	{
         op_code = get_code(line);
-        if (stack_handler(op_code, line_num, &stack) == NULL)
-            invalid_error(line_num, op_code, &stack, line, fp);
+        check = stack_handler(op_code, line_num, &stack);
+        if (check < 0)
+            if (check == -3)
+                invalid_error(line_num, op_code, &stack, line, fp);
+            if (check == -2)
+                push_error(line_num, op_code, &stack, line, fp);
         line_num++;
         free(op_code);
 	}
